@@ -142,7 +142,7 @@ module Blacksmith
         end
 
         desc "Release the Puppet module, doing a clean, build, tag, push, bump_commit and git push."
-        release_dependencies = @build ? [:clean, :build, :bump_commit, :tag, :push] : [:clean, :bump_commit, :tag]
+        release_dependencies = @build ? [:clean, :build, :tag, :push, :bump_commit] : [:clean, :tag, :bump_commit]
         task :release => release_dependencies do
           puts "Pushing to remote git repo"
           git = Blacksmith::Git.new
